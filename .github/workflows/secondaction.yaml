@@ -14,7 +14,6 @@ jobs:
         run: npm ci
       - name: run the test command
         run: npm test
-jobs: 
   Build-release:
     runs-on: ubuntu-latest
     steps:
