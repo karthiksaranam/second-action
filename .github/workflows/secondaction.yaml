@@ -9,6 +9,6 @@ jobs:
         with:
           node-version: '18'
       - name: install dependencies
-        run: npm install
+        run: npm ci
       - name: run the test command
         run: npm test
