@@ -1,14 +1,21 @@
 name: second action build
+
 on: push
+
 jobs:  
   second-action:
     runs-on: ubuntu-latest
     steps:
-      - name: install node js
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-      - name: install dependencies
+
+      - name: Install dependencies
         run: npm ci
-      - name: run the test command
+
+      - name: Run tests
         run: npm test
