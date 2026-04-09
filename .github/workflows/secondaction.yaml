@@ -1,0 +1,14 @@
+name: second action build
+on: push
+jobs:  
+  second-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: install node js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - name: install dependencies
+        run: npm install
+      - name: run the test command
+        run: npm test
