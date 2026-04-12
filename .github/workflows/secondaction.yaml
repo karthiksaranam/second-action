@@ -1,9 +1,5 @@
 name: second action build
-<<<<<<< HEAD
-on: [ push, workflow_dispatch]
-=======
 on: workflow_dispatch
->>>>>>> 769f39b4621c60dbc4063b00740b5eae870671e9
 jobs:  
   second-action:
     runs-on: ubuntu-latest
@@ -19,10 +15,6 @@ jobs:
       - name: run the test command
         run: npm test
   Build-release:
-<<<<<<< HEAD
-    needs: second-action
-=======
->>>>>>> 769f39b4621c60dbc4063b00740b5eae870671e9
     runs-on: ubuntu-latest
     steps:
       - name: install node js
@@ -36,8 +28,4 @@ jobs:
       - name: run the test command
         run: npm test
       - name: build the code
-<<<<<<< HEAD
         run: npm run build
-=======
-        run: npm run build
->>>>>>> 769f39b4621c60dbc4063b00740b5eae870671e9
