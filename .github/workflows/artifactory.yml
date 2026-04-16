@@ -5,6 +5,8 @@ on:
   push:
     branches:
       - dev
+env:
+  NODE_AUTH_TOKEN: ${{ secrets.TEST }}
 
 jobs:
   second-action:
@@ -23,6 +25,9 @@ jobs:
 
       - name: run the test command
         run: npm test
+      - name: Use token in script
+        run: |
+          echo $NODE_AUTH_TOKEN
 
   Build-release:
     needs: second-action
@@ -49,3 +54,6 @@ jobs:
           path: |
             dist
             package.json
+      - name: Use token in script
+        run: |
+          echo $NODE_AUTH_TOKEN
