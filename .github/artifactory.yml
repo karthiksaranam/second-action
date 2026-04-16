@@ -1,0 +1,40 @@
+name: artifactory build
+on: workflow_dispatch
+ branches:
+    - dev
+jobs:  
+  second-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: install node js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - name: checkout code
+        uses: actions/checkout@v3
+      - name: install dependencies
+        run: npm ci
+      - name: run the test command
+        run: npm test
+  Build-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: install node js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - name: checkout code
+        uses: actions/checkout@v3
+      - name: install dependencies
+        run: npm ci
+      - name: run the test command
+        run: npm test
+      - name: build the code
+        run: npm run build
+      - name: publish to artifactory
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-files
+          path: |
+            dist
+            package.json
